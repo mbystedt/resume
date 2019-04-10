@@ -1,0 +1,51 @@
+@import '../shared/mixins';
+
+.knowledge-header {
+	text-align: center;
+}
+
+.competencies {
+	max-width: 600px;
+	margin: 0 auto;
+	button {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+
+.col-xs-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.skills-container {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.skills-table-container {
+  height: 300px;
+	overflow: auto;
+}
+
+.skills-table-container table {
+	width: 100%;
+}
+
+.skill-table-header-name {
+	width: 100%;
+}
+
+.skill-table-header-star {
+	padding-right: 16px;
+}
+
+.skill-hint {
+	display: none;
+}
+
+@include breakpoint() {
+	.skill-hint {
+		display: inline-block;
+	}
+}

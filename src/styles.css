@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+}
+
+.section-header {
+  text-align: center;
+  font-size: 40px;
+  line-height: 1em;
+  margin: 0 0 40px;
+  font-weight: 300;
+}
+
+router-outlet+* > * > .section-header {
+  margin-top: 20px;
+}
+
+.app-block-container {
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 62em) {
+  .app-block-container {
+    margin-bottom: 60px;
+  }
+}

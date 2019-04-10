@@ -1,0 +1,8 @@
+:host {
+  margin: 0 auto;
+  display: block;
+}
+
+::ng-deep .plain-container {
+  flex-wrap: wrap;
+}

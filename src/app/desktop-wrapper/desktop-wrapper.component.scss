@@ -1,0 +1,11 @@
+@import '../shared/mixins';
+
+:host {
+  display: none;
+}
+
+@include breakpoint() {
+	:host {
+		display: block;
+	}
+}
