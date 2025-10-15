@@ -1,0 +1,19 @@
+<div class="app-block-container">
+
+	<div class="section-header">Experience</div>
+
+	<div class="exp-container">
+    @for (experience of experiences; track experience) {
+      <div class="row">
+        <div class="exp-title">{{ experience.title }}, {{ experience.company }}</div>
+        <div class="exp-date">{{ experience.date }}</div>
+
+        <ul>
+        @for (desc of experience.description; track desc) {
+          <li>{{ desc }}</li>
+        }
+        </ul>
+      </div>
+    }
+  </div>
+</div>

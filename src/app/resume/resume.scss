@@ -1,0 +1,34 @@
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+
+:host {
+  margin: 0 auto;
+  display: block;
+}
+
+.resume {
+	padding: 30px 15px;
+	margin: 30px auto;
+	max-width: 700px;
+	text-align: center;
+
+	.headline {
+		font-size: 50px;
+		line-height: 1em;
+		font-weight: 600;
+		font-family: Arial;
+	}
+
+	.text {
+		margin: 40px 0;
+		line-height: 1.8em;
+	}
+}
+
+@include breakpoint() {
+  .resume {
+    padding: 50px;
+    margin: 100px auto;
+  }
+}

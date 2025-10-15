@@ -1,0 +1,14 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  @for (link of routerLinks; track link) {
+    <a mat-tab-link
+      [routerLink]="link.data.path"
+      [active]="activeLink === link"> {{ link.data.label }} </a>
+  }
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet
+    (activate)='onActivate($event)'
+    ></router-outlet>
+</mat-tab-nav-panel>
+
+<app-copyright></app-copyright>

@@ -1,0 +1,43 @@
+<div class="app-block-container">
+  <div class="section-header">Skills</div>
+
+  <div class="competencies">
+    <mat-form-field>
+      <input matInput placeholder="Filter Skills" [ngModel]="filter"
+        (input)="setFilter($event.target.value)">
+    </mat-form-field>
+    <button mat-raised-button (click)="setFilter('')">Clear</button>
+    <span class="skill-hint">
+    <mat-chip-set>
+      <mat-chip (click)="setFilter('Development')">Development</mat-chip>
+      <mat-chip (click)="setFilter('Library')">Library</mat-chip>
+    </mat-chip-set></span>
+  </div>
+
+  <div class="skills-container">
+    <div class="skills-table-container mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="skills-table">
+        <ng-container matColumnDef="star">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="skill-table-header-star">
+            <span *ngIf="element.star" class="skill-icon">⭐️</span>
+            <span *ngIf="!element.star" class="skill-icon"></span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Skill</th>
+          <td mat-cell *matCellDef="let element" class="skill-table-header-name"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef>Experience</th>
+          <td mat-cell *matCellDef="let element"> {{element.experienceYears}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-paginator pageSize="8"></mat-paginator>
+  </div>
+</div>

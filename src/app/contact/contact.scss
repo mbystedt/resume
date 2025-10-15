@@ -1,0 +1,32 @@
+// @import '~@angular/material/theming';
+@use '../shared/mixins' as *;
+@use '../shared/variables' as *;
+
+.contact-container {
+  padding: 35px 80px 35px 35px;
+	background-color: var(--mat-sys-primary-container);
+  max-width: 600px;
+  min-height: 200px;
+
+  background-image:url('/assets/contact.png');
+  background-position-x: 120%;
+  background-position-y: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 80px auto;
+}
+
+.social {
+  margin-top: 50px;
+}
+
+.social a {
+  margin-right: 10px;
+}
+
+@include breakpoint() {
+  .contact-container {
+    padding: 75px 175px 75px 75px;
+    background-size: auto;
+  }
+}

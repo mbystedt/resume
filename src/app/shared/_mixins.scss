@@ -1,0 +1,5 @@
+@use './_variables' as *;
+
+@mixin breakpoint() {
+  @media (min-width: $responsive-min-width) { @content; }
+}

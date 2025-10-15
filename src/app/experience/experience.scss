@@ -1,0 +1,28 @@
+@use '../shared/mixins' as *;
+
+:host {
+  margin: 0 auto;
+  display: block;
+}
+
+.exp-container {
+  position: relative;
+  margin: 40px;
+}
+
+.row {
+  margin-bottom: 2em;
+}
+
+.exp-date {
+  margin-bottom: 15px;
+  font-weight: 100;
+  font-size: .9em;
+  color: var(--subtitle-text-color);
+}
+
+.exp-title {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 1.2em;
+}
