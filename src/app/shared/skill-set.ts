@@ -1,4 +1,5 @@
-export interface SkillSet {
+export interface SkillNode {
+  key: string;
   name: string;
   weight: number;
   experienceYears: string | number;
@@ -6,84 +7,258 @@ export interface SkillSet {
   tags?: string[];
 }
 
-export const skillSetArr: SkillSet[] = [
-  { weight: 1, name: "Java", experienceYears: "5+", star: true, tags: ["language", "program", "development"] },
-  { weight: 1, name: "PHP", experienceYears: "5+", star: true, tags: ["website", "language", "program", "development"] },
-  { weight: 1, name: "HTML", experienceYears: "5+", star: true, tags: ["html5", "5", "website"] },
-  { weight: 1, name: "Javascript", experienceYears: "5+", star: true, tags: ["website", "language", "program", "development"] },
-  { weight: 2, name: "SVG", experienceYears: 5, star: true, tags: ["XML"] },
-  { weight: 3, name: "CSS", experienceYears: "5+", star: true, tags: ["website"] },
-  { weight: 2, name: "SASS", experienceYears: "5+", star: true, tags: ["website", "css"] },
-  { weight: 4, name: "LESS", experienceYears: 1, tags: ["website", "css"] },
-  { weight: 2, name: "Agile Development", experienceYears: 4, tags: ["methodology"] },
-  { weight: 4, name: "Objective C", experienceYears: 2, tags: ["language", "program", "development"] },
-  { weight: 3, name: "Swift", experienceYears: 1, tags: ["language", "program", "development"] },
-  { weight: 3, name: "C", experienceYears: 2, tags: ["game", "language", "program", "development"] },
-  { weight: 3, name: "C++", experienceYears: 1, tags: ["language", "program", "development"] },
-  { weight: 3, name: "Perl", experienceYears: 1, tags: ["scripting", "language", "program", "development"] },
-  { weight: 3, name: "SQL (MySql)", experienceYears: "5+", star: true, tags: ["db", "database"]},
-  { weight: 4, name: "SQL (Oracle)", experienceYears: 1, tags: ["db", "database"]},
-  { weight: 4, name: "SQL (PostgreSQL)", experienceYears: 1, tags: ["db", "database"]},
-  { weight: 4, name: "MongoDB", experienceYears: 1, tags: ["db", "database"]},
-  { weight: 5, name: "OpenGl", experienceYears: 1, tags: ["graphics", "game", "library"] },
-  { weight: 4, name: "Ajax", experienceYears: "5+", tags: ["website"] },
-  { weight: 2, name: "XML", experienceYears: "5+" },
-  { weight: 3, name: "XSLT", experienceYears: 2, tags: ["XML"] },
-  { weight: 2, name: "jQuery", experienceYears: 5, star: true, tags: ["Javascript", "library"] },
-  { weight: 3, name: "Dojo", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 3, name: "React", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 5, name: "Flux", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 4, name: "Vuex", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 3, name: "RxJS", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 3, name: "AngularJS", experienceYears: 3, tags: ["Javascript", "library"] },
-  { weight: 3, name: "Angular", experienceYears: 3, tags: ["Javascript", "library"] },
-  { weight: 3, name: "Underscore", experienceYears: 3, tags: ["Javascript", "library"] },
-  { weight: 4, name: "Lodash", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 2, name: "npm", experienceYears: 3, tags: ["Javascript", "module", "manager", "package"] },
-  { weight: 4, name: "bower", experienceYears: 1, tags: ["Javascript", "module", "manager", "package"] },
-  { weight: 4, name: "Eclipse", experienceYears: 4, tags: ["development", "environment"] },
-  { weight: 4, name: "Xcode", experienceYears: "5+", tags: ["development", "environment"] },
-  { weight: 4, name: "Visual Studio Code", experienceYears: 2, tags: ["development", "environment"] },
-  { weight: 5, name: "CVS", experienceYears: 3, tags: ["version", "control"] },
-  { weight: 4, name: "GIT", experienceYears: "5+", tags: ["version", "control"] },
-  { weight: 3, name: "Subversion", experienceYears: 4, star: true, tags: ["version", "control"] },
-  { weight: 4, name: "Ant", experienceYears: 4, tags: ["build", "Java"] },
-  { weight: 3, name: "Maven", experienceYears: 2, tags: ["build"] },
-  { weight: 3, name: "Gradle", experienceYears: 1, tags: ["build"] },
-  { weight: 3, name: "Gulp", experienceYears: 3, tags: ["build"] },
-  { weight: 3, name: "NPM", experienceYears: 3, tags: ["build", "Javascript"] },
-  { weight: 6, name: "LAMP Administration", experienceYears: 5, tags: ["linux", "apache", "MySql", "PHP"] },
-  { weight: 5, name: "Drupal", experienceYears: 2, tags:["content", "management", "platform"] },
-  { weight: 6, name: "Moodle", experienceYears: 1, tags:["content", "management", "platform"] },
-  { weight: 2, name: "Linux (Ubuntu, Gentoo)", experienceYears: 5, star: true, tags: ["OS", "Operating", "System"] },
-  { weight: 2, name: "Mac OS X", experienceYears: 5, star: true, tags: ["OS", "Operating", "System"] },
-  { weight: 2, name: "Windows", experienceYears: 4, tags: ["OS", "Operating", "System"] },
-  { weight: 6, name: "Test Driven Development", experienceYears: 4, tags: ["methodology"] },
-  { weight: 6, name: "Bugzilla", experienceYears: 3, tags: ["defect", "bug", "story"] },
-  { weight: 6, name: "Jira", experienceYears: 4, tags: ["defect", "bug", "story"] },
-  { weight: 6, name: "Rally", experienceYears: 3, tags: ["defect", "bug", "story", "website", "agile", "methodology"] },
-  { weight: 6, name: "UML", experienceYears: 1, tags: ["development", "methodology", "modeling"] },
-  { weight: 6, name: "Bash", experienceYears: 2, tags: ["development", "scripting", "shell"] },
-  { weight: 6, name: "Memcached", experienceYears: 1, tags: ["cache", "scale", "website"] },
-  { weight: 6, name: "Hibernate", experienceYears: 1, tags: ["java", "library"] },
-  { weight: 6, name: "Spring", experienceYears: 1, tags: ["java", "library"] },
-  { weight: 6, name: "Apache Tomcat", experienceYears: 1, tags: ["java", "website"] },
-  { weight: 6, name: "Glassfish", experienceYears: 1, tags: ["java", "website"] },
-  { weight: 2, name: "TypeScript", experienceYears: 3, star: true, tags: ["language", "website", "development", "program"] },
-  { weight: 2, name: "Python", experienceYears: 2, tags: ["language", "website", "development", "program"] },
-  { weight: 3, name: "Docker", experienceYears: 1, tags: ["management", "website", "environment", "development"] },
-  { weight: 6, name: "Kubernetes", experienceYears: 1, tags: ["management", "website", "environment", "development"] },
-  { weight: 5, name: "Stash", experienceYears: 2, tags: ["version", "control", "development", "git"] },
-  { weight: 3, name: "i18n", experienceYears: 4, tags: ["development"] },
-  { weight: 6, name: "TSLint", experienceYears: 2, tags: ["development"] },
-  { weight: 2, name: "AWS", experienceYears: 1, tags: ["amazon", "development", "management", "services"] },
-  { weight: 6, name: "Socket.io", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 3, name: "Microservices", experienceYears: 2, tags: ["environment"] },
-  { weight: 6, name: "OpenAPI", experienceYears: 1, tags: ["rest", "api", "swagger"] },
-  { weight: 4, name: "Vue.js", experienceYears: 1, tags: ["Javascript", "library"] },
-  { weight: 4, name: "Material Design", experienceYears: 2, tags: ["Javascript", "Design", "library"] },
-  { weight: 4, name: "Bootstrap", experienceYears: 4, tags: ["Javascript", "Design", "library"] }
+
+// Base properties shared by all nodes
+interface BaseSkillTreeNode {
+  name: string;
+  star?: boolean;
+  tags: string[];
+}
+
+// Branch nodes (non-leaf): must have children
+export interface SkillTreeBranch extends BaseSkillTreeNode {
+  children: SkillTreeNode[];
+  key?: never;
+  value?: never;
+  experienceYears?: never;
+}
+
+// Leaf nodes: must NOT have children and must include leaf properties like key, value, tags, ...
+export interface SkillTreeLeaf extends BaseSkillTreeNode {
+  key: string;
+  value: number;
+  experienceYears: number | string;
+  children?: never;
+}
+
+// Unified type (recursive tree structure)
+export type SkillTreeNode = SkillTreeBranch | SkillTreeLeaf;
+
+export const skillTree: SkillTreeNode[] = [
+  {
+    name: "Skills",
+    tags: [],
+    children: [
+      {
+        name: "Software Engineering",
+        tags: [],
+        children: [
+          {
+            name: "Frontend",
+            tags: ['frontend'],
+            children: [
+              {
+                name: "JavaScript Frameworks",
+                tags: ['javascript'],
+                children: [
+                  { key: "angular", name: "Angular", value: 9, experienceYears: 7, tags: ["frontend", "javascript", "library"] },
+                  { key: "vuejs", name: "Vue.js", value: 7, experienceYears: 1, tags: ["frontend", "javascript", "library"] },
+                  { key: "react", name: "React", value: 3, experienceYears: 1, tags: ["frontend", "javascript", "library"] },
+                  { key: "d3js", name: "D3.js", value: 6, experienceYears: 1, tags: ["frontend", "visualization", "frontend"] },
+                  { key: "jquery", name: "jQuery", value: 2, star: true, experienceYears: 5, tags: ["Javascript", "library"] },
+                  { key: "underscore", name: "Underscore", value: 3, experienceYears: 4, tags: ["Javascript", "library"] },
+                  { key: "lodash", name: "Lodash", value: 4, experienceYears: 4, tags: ["Javascript", "library"] }
+                ]
+              },
+              {
+                name: "Web Styling",
+                tags: ['website'],
+                children: [
+                  { key: "css", name: "CSS", value: 3, star: true, experienceYears: "5+", tags: ["website"] },
+                  { key: "sass", name: "SASS", value: 2, star: true, experienceYears: "5+", tags: ["website", "css"] },
+                  { key: "less", name: "LESS", value: 4, experienceYears: 1, tags: ["website", "css"] },
+                  { key: "bootstrap", name: "Bootstrap", value: 4, experienceYears: 4, tags: ["Javascript", "Design", "library"] },
+                  { key: "material-design", name: "Material Design", value: 4, experienceYears: 2, tags: ["Javascript", "Design", "library"] }
+                ]
+              }
+            ]
+          },
+          {
+            name: "Backend",
+            tags: ['backend'],
+            children: [
+              {
+                name: "Languages",
+                tags: ['languages'],
+                children: [
+                  { key: "nodejs", name: "Node.js", value: 8, experienceYears: 7, tags: ["backend", "javascript"] },
+                  { key: "python", name: "Python", value: 7, experienceYears: 5, tags: ["backend", "automation"] },
+                  { key: "java", name: "Java", value: 7, experienceYears: 4, tags: ["backend", "enterprise"] },
+                  { key: "php", name: "PHP", value: 5, experienceYears: 7, tags: ["website", "language", "program", "development"] },
+                  { key: "c", name: "C", value: 3, experienceYears: 2, tags: ["game", "language", "program", "development"] },
+                  { key: "cpp", name: "C++", value: 3, experienceYears: 1, tags: ["language", "program", "development"] },
+                  { key: "perl", name: "Perl", value: 3, experienceYears: 1, tags: ["scripting", "language", "program", "development"] },
+                  { key: "objective-c", name: "Objective C", value: 4, experienceYears: 2, tags: ["language", "program", "development"] },
+                  { key: "swift", name: "Swift", value: 3, experienceYears: 1, tags: ["language", "program", "development"] }
+                ]
+              },
+              {
+                name: "APIs & Integration",
+                tags: ['api'],
+                children: [
+                  { key: "rest-api-design", name: "REST API Design", value: 6, experienceYears: 8, tags: ["backend", "integration"] },
+                  { key: "system-design", name: "System Design", value: 8, experienceYears: 7, tags: ["architecture", "planning"] }
+                ]
+              }
+            ]
+          },
+          {
+            name: "Database",
+            tags: ['database'],
+            children: [
+              {
+                name: "Relational",
+                tags: ['relational'],
+                children: [
+                  { key: "postgresql", name: "PostgreSQL", value: 8, experienceYears: 6, tags: ["database", "sql"] },
+                  { key: "mysql", name: "MySQL", value: 7, experienceYears: 5, tags: ["database", "sql"] },
+                  { key: "oracle", name: "Oracle", value: 6, experienceYears: 2, tags: ["database", "enterprise"] }
+                ]
+              },
+              {
+                name: "NoSQL & Graph",
+                tags: ['NoSQL'],
+                children: [
+                  { key: "mongodb", name: "MongoDB", value: 4, experienceYears: 1, tags: ["db", "database"] },
+                  { key: "orientdb", name: "OrientDB", value: 6, experienceYears: 1, tags: ["database", "graph"] }
+                ]
+              },
+              { key: "cmdb", name: "Configuration Management Database (CMDB)", value: 7, experienceYears: 3, tags: ["automation", "infrastructure"] }
+            ]
+          }
+        ]
+      },
+      {
+        name: "DevOps & Infrastructure",
+        tags: ['devops'],
+        children: [
+          {
+            name: "Automation & CI/CD",
+            tags: ['automation'],
+            children: [
+              { key: "ci-cd-pipelines", name: "CI/CD Pipelines", value: 10, experienceYears: 6, tags: ["devops", "automation"] },
+              { key: "github-actions", name: "GitHub Actions", value: 9, experienceYears: 4, tags: ["ci", "automation"] },
+              { key: "jenkins", name: "Jenkins", value: 9, experienceYears: 5, tags: ["ci", "deployment"] },
+              { key: "argocd", name: "ArgoCD", value: 8, experienceYears: 3, tags: ["cd", "kubernetes"] },
+              { key: "ansible", name: "Ansible", value: 8, experienceYears: 5, tags: ["automation", "config"] }
+            ]
+          },
+          {
+            name: "Cloud & Platforms",
+            tags: ['cloud'],
+            children: [
+              { key: "aws", name: "AWS", value: 8, experienceYears: 5, tags: ["cloud", "infrastructure"] },
+              { key: "openshift", name: "OpenShift", value: 9, experienceYears: 4, tags: ["kubernetes", "deployment"] },
+              { key: "kubernetes", name: "Kubernetes", value: 7, experienceYears: 4, tags: ["containers", "cloud"] },
+              { key: "docker", name: "Docker", value: 7, experienceYears: 6, tags: ["containers", "development"] },
+              { key: "podman", name: "Podman", value: 6, experienceYears: 2, tags: ["containers", "devops"] },
+              { key: "opensearch", name: "OpenSearch", value: 8, experienceYears: 3, tags: ["observability", "logging"] }
+            ]
+          },
+          {
+            name: "Security & Secrets Management",
+            tags: ['security'],
+            children: [
+              { key: "hashicorp-vault", name: "HashiCorp Vault", value: 10, experienceYears: 3, tags: ["security", "secrets"] }
+            ]
+          },
+          {
+            name: "Version Control & Build",
+            tags: ['version'],
+            children: [
+              { key: "git", name: "GIT", value: 4, experienceYears: 8, tags: ["version", "control"] },
+              { key: "subversion", name: "Subversion", value: 3, star: true, experienceYears: 5, tags: ["version", "control"] },
+              { key: "ant", name: "Ant", value: 4, experienceYears: 4, tags: ["build", "Java"] },
+              { key: "maven", name: "Maven", value: 3, experienceYears: 2, tags: ["build"] },
+              { key: "npm", name: "npm", value: 2, experienceYears: 7, tags: ["Javascript", "module", "manager", "package"] }
+            ]
+          }
+        ]
+      },
+      {
+        name: "Development Tools & Design",
+        tags: ['design'],
+        children: [
+          {
+            name: "Environments",
+            tags: ['development'],
+            children: [
+              { key: "xcode", name: "Xcode", value: 4, experienceYears: 5, tags: ["development", "environment"] },
+              { key: "vscode", name: "Visual Studio Code", value: 4, experienceYears: 7, tags: ["development", "environment"] }
+            ]
+          },
+          {
+            name: "Modeling & Methodologies",
+            tags: ['modeling'],
+            children: [
+              { key: "uml", name: "UML", value: 6, experienceYears: 1, tags: ["development", "methodology", "modeling"] },
+              { key: "agile-development", name: "Agile Development", value: 8, experienceYears: 10, tags: ["team", "process"] },
+              { key: "tdd", name: "Test-Driven Development", value: 7, experienceYears: 5, tags: ["testing", "quality"] },
+              { key: "i18n", name: "i18n", value: 3, experienceYears: 4, tags: ["development"] }
+            ]
+          }
+        ]
+      },
+      {
+        name: "Soft Skills",
+        tags: ['soft'],
+        children: [
+          { key: "leadership-mentorship", name: "Leadership & Mentorship", value: 7, experienceYears: 5, tags: ["soft", "team"] },
+          { key: "communication", name: "Communication", value: 8, experienceYears: 10, tags: ["soft", "collaboration"] },
+          { key: "problem-solving", name: "Problem Solving", value: 6, experienceYears: 10, tags: ["soft", "analysis"] },
+          { key: "agile-coaching", name: "Agile Coaching", value: 5, experienceYears: 3, tags: ["soft", "leadership"] }
+        ]
+      },
+      {
+        name: "Graphics & Web Media",
+        tags: ['graphics'],
+        children: [
+          { key: "svg", name: "SVG", value: 2, star: true, experienceYears: 5, tags: ["XML"] },
+          { key: "opengl", name: "OpenGl", value: 5, experienceYears: 1, tags: ["graphics", "game", "library"] },
+          { key: "xslt", name: "XSLT", value: 3, experienceYears: 2, tags: ["XML"] }
+        ]
+      },
+      {
+        name: "Content & CMS",
+        tags: ['content'],
+        children: [
+          { key: "drupal", name: "Drupal", value: 5, experienceYears: 2, tags: ["content", "management", "platform"] }
+        ]
+      }
+    ]
+  }
 ];
+
+function flattenSkills(nodes: SkillTreeNode[]): SkillNode[] {
+  const result: SkillNode[] = [];
+
+  // Recursive walk, passing accumulated tags
+  const walk = (children: SkillTreeNode[], parentTags: string[] = []) => {
+    for (const node of children) {
+      // Merge parent tags (if any) with node's own tags
+      const mergedTags = [...new Set([...(parentTags || []), ...(node.tags || [])])];
+
+      if (node.children && node.children.length > 0) {
+        walk(node.children, mergedTags);
+      } else if (node.key && node.value !== undefined) {
+        result.push({
+          key: node.key,
+          name: node.name,
+          weight: node.value,
+          experienceYears: node.experienceYears,
+          tags: mergedTags,
+          star: node.star
+        });
+      }
+    }
+  };
+
+  walk(nodes);
+  return result;
+}
+
+// Generate the flattened skill node array
+export const skillNodes: SkillNode[] = flattenSkills(skillTree);
 
 const synomyns = {
   'js': 'javascript',
