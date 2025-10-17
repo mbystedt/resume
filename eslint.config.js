@@ -2,6 +2,8 @@
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const prettierRecommended = require('eslint-plugin-prettier/recommended');
+
 
 module.exports = tseslint.config(
   {
@@ -31,6 +33,14 @@ module.exports = tseslint.config(
         },
       ],
     },
+  },
+  {
+    // Any project level overrides or additional rules for TypeScript files can go here
+    // (we don't need to extend from any typescript-eslint or angular-eslint configs because
+    // we already applied the rootConfig above which has them)
+    files: ['**/*.ts'],
+    extends: [prettierRecommended], // here we inherit from the recommended setup from eslint-plugin-prettier for TS
+    rules: {},
   },
   {
     files: ["**/*.html"],

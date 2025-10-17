@@ -1,28 +1,72 @@
 @use '../shared/mixins' as *;
 
-:host {
+.experience-container {
+  max-width: 900px;
   margin: 0 auto;
-  display: block;
+  padding: 1rem;
 }
 
-.exp-container {
-  position: relative;
-  margin: 40px;
+.job-container {
+  padding-bottom: 64px;
 }
 
-.row {
-  margin-bottom: 2em;
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+
+  .job-company {
+    h2 {
+      margin: 0;
+    }
+    .job-division {
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+  }
+
+  .job-meta {
+    text-align: right;
+    .job-title {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .job-date {
+      font-size: 0.85rem;
+      color: var(--mat-sys-on-surface-variant);
+    }
+  }
 }
 
-.exp-date {
-  margin-bottom: 15px;
-  font-weight: 100;
-  font-size: .9em;
-  color: var(--subtitle-text-color);
+.job-summary {
+  margin: 0.75rem 0 1rem 0;
+  line-height: 1.5;
 }
 
-.exp-title {
-  margin-bottom: 5px;
-  font-weight: 400;
-  font-size: 1.2em;
+.projects {
+  margin-top: 0.75rem;
+
+  .projects-accordion {
+    margin-left: 0.5rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .project-name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .project-date {
+      font-size: 0.8rem;
+      color: var(--mat-sys-on-surface-variant);
+      margin-right: 2rem;
+    }
+  }
 }
+
