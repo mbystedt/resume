@@ -5,8 +5,6 @@ import { Resume } from '../resume/resume';
   selector: 'app-home',
   imports: [Resume],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrl: './home.scss',
 })
-export class Home {
-
-}
+export class Home {}

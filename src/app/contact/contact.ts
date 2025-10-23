@@ -8,7 +8,7 @@ import { faLinkedinIn, faGoogle } from '@fortawesome/free-brands-svg-icons';
   selector: 'app-contact',
   imports: [FontAwesomeModule, MatButtonModule, MatCardModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss'
+  styleUrl: './contact.scss',
 })
 export class Contact {
   protected faLinkedinIn = faLinkedinIn;

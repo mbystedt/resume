@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { CarouselLibConfig, GalleryModule, Image, ModalGalleryService } from '@ks89/angular-modal-gallery';
+import { Component, inject } from '@angular/core';
+import {
+  CarouselLibConfig,
+  GalleryModule,
+  Image,
+  ModalGalleryService,
+} from '@ks89/angular-modal-gallery';
 
 @Component({
   selector: 'app-portfolio',
   imports: [GalleryModule],
   templateUrl: './portfolio.html',
-  styleUrl: './portfolio.scss'
+  styleUrl: './portfolio.scss',
 })
 export class Portfolio {
-
   protected images: Image[] = [
     {
       id: 10,
@@ -16,13 +20,13 @@ export class Portfolio {
         img: 'assets/projects/img/broker-graph.jpg',
         description: 'Broker graph view',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/broker-graph.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 20,
@@ -30,13 +34,13 @@ export class Portfolio {
         img: 'assets/projects/img/apike-front.jpg',
         description: 'Apike.ca Front Page',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/apike-front.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 21,
@@ -44,13 +48,13 @@ export class Portfolio {
         img: 'assets/projects/img/apike-java.jpg',
         description: 'Apike.ca Java Page',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/apike-java.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 30,
@@ -58,13 +62,13 @@ export class Portfolio {
         img: 'assets/projects/img/apike-svg.jpg',
         description: 'Apike.ca <a href="">SVG Tutorial</a>',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/apike-svg.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 40,
@@ -72,13 +76,13 @@ export class Portfolio {
         img: 'assets/projects/img/japan-hiroshima.jpg',
         description: 'Japan Guidebook - Hiroshima',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/japan-hiroshima.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 41,
@@ -86,13 +90,13 @@ export class Portfolio {
         img: 'assets/projects/img/japan-miyajima.jpg',
         description: 'Japan Guidebook - Miyajima',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/japan-miyajima.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 42,
@@ -100,13 +104,13 @@ export class Portfolio {
         img: 'assets/projects/img/japan-climate.jpg',
         description: 'Japan Guidebook - Climate Graphs',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/japan-climate.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
     {
       id: 7,
@@ -114,13 +118,13 @@ export class Portfolio {
         img: 'assets/projects/img/japan-map.jpg',
         description: 'Japan Guidebook - Map Visualization',
         title: '',
-        alt: ''
+        alt: '',
       },
       plain: {
         img: 'assets/projects/thumb/japan-map.jpg',
       },
       loading: 'eager',
-      fetchpriority: 'high'
+      fetchpriority: 'high',
     },
   ];
 
@@ -137,7 +141,7 @@ export class Portfolio {
       visible: true,
       number: 10,
       width: 'auto',
-      maxHeight: '100px'
+      maxHeight: '100px',
     },
     carouselConfig: {
       maxWidth: '1024px',
@@ -145,19 +149,18 @@ export class Portfolio {
       showArrows: true,
       objectFit: 'scale-down',
       keyboardEnable: true,
-      modalGalleryEnable: true
-    }
+      modalGalleryEnable: true,
+    },
   };
 
-  constructor(private modalGalleryService: ModalGalleryService){}
+  private modalGalleryService: ModalGalleryService = inject(ModalGalleryService);
 
   onShow(id: number, index: number, images: Image[] = this.images): void {
     console.log(index);
     this.modalGalleryService.open({
       id,
       images,
-      currentImage: images[index]
+      currentImage: images[index],
     });
   }
-
 }

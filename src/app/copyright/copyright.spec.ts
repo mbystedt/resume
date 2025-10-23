@@ -8,9 +8,8 @@ describe('Copyright', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Copyright]
-    })
-    .compileComponents();
+      imports: [Copyright],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Copyright);
     component = fixture.componentInstance;

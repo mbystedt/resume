@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,44 +9,55 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
 import * as echarts from 'echarts/core';
-import { BarChart, TreeChart } from 'echarts/charts';
+import { TreeChart } from 'echarts/charts';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
 import { skillNodes, SkillNode, skillTree } from '../shared/skill-set';
 
-
-echarts.use([BarChart, TreeChart, GridComponent, TooltipComponent, CanvasRenderer]);
+echarts.use([TreeChart, GridComponent, TooltipComponent, CanvasRenderer]);
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule, NgxEchartsDirective, FormsModule, MatButtonModule, MatChipsModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule],
+  imports: [
+    CommonModule,
+    NgxEchartsDirective,
+    FormsModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+  ],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
-  providers: [
-    provideEchartsCore({ echarts }),
-  ]
+  providers: [provideEchartsCore({ echarts })],
 })
-export class Skills {
-
-  public filter: string = '';
+export class Skills implements OnInit {
+  public filter = '';
   public displayedColumns: string[] = ['star', 'name', 'experience'];
 
   @ViewChild(MatPaginator) public paginator!: MatPaginator;
-  public dataSource = new MatTableDataSource<SkillNode>(skillNodes.sort((a, b) => {
-    if (a.weight === b.weight) {
-      return a.name.localeCompare(b.name);
-    } else {
-      return a.weight - b.weight;
-    }
-  }
-  ));
+  public dataSource = new MatTableDataSource<SkillNode>(
+    skillNodes.sort((a, b) => {
+      if (a.weight === b.weight) {
+        return a.name.localeCompare(b.name);
+      } else {
+        return a.weight - b.weight;
+      }
+    }),
+  );
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.dataSource.filterPredicate = (data: any, filter: any) => {
-      return data.name.toLowerCase().indexOf(filter) !== -1 || (data.tags && data.tags.indexOf(filter) !== -1);
-    }
+      return (
+        data.name.toLowerCase().indexOf(filter) !== -1 ||
+        (data.tags && data.tags.indexOf(filter) !== -1)
+      );
+    };
   }
 
   public setFilter(filter: string): void {

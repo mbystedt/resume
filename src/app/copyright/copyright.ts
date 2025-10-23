@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-copyright',
   imports: [],
   templateUrl: './copyright.html',
-  styleUrl: './copyright.scss'
+  styleUrl: './copyright.scss',
 })
-export class Copyright {
-
-}
+export class Copyright {}

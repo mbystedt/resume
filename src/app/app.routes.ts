@@ -13,12 +13,14 @@ export const outletRoutes = [
   { path: 'portfolio', component: Portfolio, data: { path: '/portfolio', label: 'Portfolio' } },
   { path: 'experience', component: Experience, data: { path: '/experience', label: 'Experience' } },
   { path: 'contact', component: Contact, data: { path: '/contact', label: 'Contact' } },
-  { path: '**', component: Home, data: { path: '/home' } }
+  { path: '**', component: Home, data: { path: '/home' } },
 ];
 
 export const routes: Routes = [
   {
-    path: '', component: Layout, children: outletRoutes
+    path: '',
+    component: Layout,
+    children: outletRoutes,
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

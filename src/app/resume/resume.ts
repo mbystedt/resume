@@ -5,8 +5,6 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-resume',
   imports: [MatCardModule],
   templateUrl: './resume.html',
-  styleUrl: './resume.scss'
+  styleUrl: './resume.scss',
 })
-export class Resume {
-
-}
+export class Resume {}

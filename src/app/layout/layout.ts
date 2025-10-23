@@ -9,15 +9,15 @@ import { outletRoutes } from '../app.routes';
   selector: 'app-layout',
   imports: [RouterModule, RouterOutlet, MatTabsModule, Copyright],
   templateUrl: './layout.html',
-  styleUrl: './layout.scss'
+  styleUrl: './layout.scss',
 })
 export class Layout {
-
   public routerLinks = outletRoutes.filter((route) => route.path !== '**');
 
   protected activeLink = this.routerLinks[0];
 
   protected onActivate($event: unknown): void {
-    this.activeLink = this.routerLinks.find((rLinks) => $event instanceof rLinks.component) ?? this.routerLinks[0];
+    this.activeLink =
+      this.routerLinks.find((rLinks) => $event instanceof rLinks.component) ?? this.routerLinks[0];
   }
 }
