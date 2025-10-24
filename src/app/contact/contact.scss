@@ -3,7 +3,7 @@
 @use '../shared/variables' as *;
 
 .contact-container {
-  padding: 35px 80px 35px 35px;
+  padding: $margin-xlarge $margin-xxlarge $margin-xlarge $margin-xlarge;
 	background-color: var(--mat-sys-primary-container);
   max-width: 600px;
   min-height: 200px;
@@ -21,12 +21,12 @@
 }
 
 .social a {
-  margin-right: 10px;
+  margin-right: $margin-medium;
 }
 
-@include breakpoint() {
+@include minBreakpoint() {
   .contact-container {
-    padding: 75px 175px 75px 75px;
+    padding: $margin-xxxlarge $margin-xxxlarge $margin-xxxlarge $margin-xxxlarge;
     background-size: auto;
   }
 }

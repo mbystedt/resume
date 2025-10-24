@@ -1,45 +1,54 @@
 <div class="app-block-container">
 
-	<div class="section-header">Experience</div>
+  <div class="section-header">Experience</div>
 
   @if (experiences.length) {
     <div class="experience-container">
-    @for (job of experiences; track job) {
-      <div class="job-container">
-      <div class="job-header">
-        <div class="job-company">
-          <h2>{{ job.company }}</h2>
-          <p *ngIf="job.division" class="job-division">{{ job.division }}</p>
+      @for (job of experiences; track job) {
+        <div class="job-container">
+          <div class="job-header">
+            <div class="job-company">
+              <h2>{{ job.company }}</h2>
+              @if (job.division) {
+                <div class="job-division">{{ job.division }}</div>
+              }
+            </div>
+            <div class="job-meta">
+              <div class="job-title">{{ job.title }}</div>
+              <div class="job-date">{{ job.date }}</div>
+            </div>
+          </div>
+
+          <div class="job-summary">
+            <p>{{ job.summary }}</p>
+          </div>
+
+          @if (job.projects.length) {
+            <div class="projects">
+              <h3>Projects</h3>
+              <mat-accordion class="projects-accordion" multi>
+                @for (project of job.projects; track project) {
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <div class="project-header">
+                        <span class="project-name">{{ project.name }}</span>
+                        @if (project.date) {
+                          <span class="project-date">{{ project.date }}</span>
+                        }
+                      </div>
+                    </mat-expansion-panel-header>
+                    <ul>
+                      @for (line of project.descriptions; track line) {
+                        <li>{{ line }}</li>
+                      }
+                    </ul>
+                  </mat-expansion-panel>
+                }
+              </mat-accordion>
+            </div>
+          }
         </div>
-        <div class="job-meta">
-          <div class="job-title">{{ job.title }}</div>
-          <div class="job-date">{{ job.date }}</div>
-        </div>
-      </div>
-
-      <div class="job-summary">
-        <p>{{ job.summary }}</p>
-      </div>
-
-      <div *ngIf="job.projects?.length" class="projects">
-        <h3>Projects</h3>
-        <mat-accordion class="projects-accordion" multi>
-          <mat-expansion-panel *ngFor="let project of job.projects">
-            <mat-expansion-panel-header>
-              <div class="project-header">
-                <span class="project-name">{{ project.name }}</span>
-                <span class="project-date" *ngIf="project.date">{{ project.date }}</span>
-              </div>
-            </mat-expansion-panel-header>
-
-            <ul>
-              <li *ngFor="let line of project.descriptions">{{ line }}</li>
-            </ul>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-      </div>
-    }
+      }
     </div>
   }
 </div>

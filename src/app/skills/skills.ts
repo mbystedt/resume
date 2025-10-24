@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
@@ -20,7 +20,6 @@ echarts.use([TreeChart, GridComponent, TooltipComponent, CanvasRenderer]);
 @Component({
   selector: 'app-skills',
   imports: [
-    CommonModule,
     NgxEchartsDirective,
     FormsModule,
     MatButtonModule,
